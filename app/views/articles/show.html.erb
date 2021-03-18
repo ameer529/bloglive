@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+<div class="jumbotron">
+  <h1 class="display-4">
+    <div>
+    <% if @article.image.attached? %>
+    <%= image_tag(@article.image, :size => "260x180") %>
+    <% end %>
+  </div>
+  	<h1><%= @article.title %></h1>
+  </h1>
+  <p><%= @article.body %></p>
+
+  <hr class="my-4">
+  <p class="lead">
+    <a href="#" role="button">
+    
+  <%= link_to "Edit", edit_article_path(@article) ,class:"btn btn-outline-secondary"%>
+  <%= link_to "Destroy", article_path(@article),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } ,class:"btn btn-outline-danger"%>
+  <%= link_to "Back", root_path(@article) ,class:"btn btn-outline-secondary"%>
+      <%= link_to "Search Names", names_articles_path(@article) ,class:"btn btn-outline-secondary"%>
+    </a>
+  </p>
+</div>
+
+<h2>Comments</h2>
+<%= render @article.comments %>
+</br>
+<% if user_signed_in? %>
+<h2>Add a comment:</h2>
+<%= render 'comments/form' %>
+<% end %>
+
+

@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+<div class="card" style="width: 18rem;">
+  
+  <div class="card-body">
+    <h4 >
+      <%= comment.commenter %>
+    </h4>
+    <p class="lead">
+      <%= comment.body %>
+    </p>
+    <%= link_to 'Destroy Comment', [comment.article, comment],
+              method: :delete,
+              data: { confirm: "Are you sure?" },class:"btn btn-outline-danger"%>
+  </div>
+</div>

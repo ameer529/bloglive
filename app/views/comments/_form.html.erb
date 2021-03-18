@@ -1,0 +1,15 @@
+<div class="form-group">
+<%= form_with model: [ @article, @article.comments.build ] do |form| %>
+  <p>
+    <% form.label :commenter %><br>
+    <%= form.text_field :commenter,class:"form-control",placeholder:"Your Name" %>
+  </p>
+  <p>
+    <% form.label :body %><br>
+    <%= form.text_area :body,class:"form-control",placeholder:"Comment" %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+</div>
